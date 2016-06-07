@@ -1,0 +1,24 @@
+6 years experienced PHP programmer
+name : Rakesh R
+Birthday : 1985-12-9
+Nationality : 81
+
+ ------------- EDUCATIONAL QUALIFCATION ---------------------- 
+Education Degree : B tech in Information Technology
+Institute name : London University
+Year of graduation : 2007
+
+
+
+ ------------- WORK EXPERIENCE ---------------------- 
+2007-2010
+Vanilla Networks at Vanilla Networks
+responsible for building websites from scratch
+
+
+
+
+ ------------- CONTACT DETAILS ---------------------- 
+mobile number : 9249444345, 9249444345
+home number : 0479-2476672, 
+English, Malayalam

@@ -1,0 +1,27 @@
+
+Henry Bourne
+
+Birthday : 9-6-1986
+Nationality : Austrailan
+
+
+------------- Educational Qualification ----------------------
+
+Education Degree : Btech
+Institute name :  yales university london
+Year of graduation : 2007
+
+------------- Work Experience ----------------------
+
+2007-2010
+Systems Programmer at Xminds software pvt ltd
+
+Was responsible for programming APIs for the companies vast data mines.
+
+
+2010 - 2012
+System Analyst at careercopy.com
+As a lead programmer, was responsible for the maintanance of code at highly optimized state and also had to lead the team into developing new features for the 
+website.
+
+Languages Known : English, Spanish

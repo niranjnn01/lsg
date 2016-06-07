@@ -1,0 +1,30 @@
+
+/*website specific css modifications*/
+
+/* Additional classes*/
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+/**
+ *
+ * Bootstrap style.
+ * original value - colour:inherit
+ * issue - "colour:inherit" was making the text in select box in jquery datepicker to be white (hence not readable)
+ *
+ **/
+button, input, optgroup, select, textarea{
+    color:black; 
+}
+
+.form_label_error {color:red;}
+
+.table.borderless>tbody>tr>td, .table.borderless>tbody>tr>th {
+    border: none;
+}
+
+.mce-path {/* CSS */
+    display: none !important;
+}
