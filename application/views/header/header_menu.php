@@ -51,6 +51,9 @@
         <li>
             <a href="<?php echo $c_base_url;?>contact_us">Contact Us</a>
         </li>
+        <li class="">
+            <a href="<?php echo $c_base_url;?>user/login" >Login</a>
+        </li>
       </ul>
       
     </div><!-- /.navbar-collapse -->

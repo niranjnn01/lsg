@@ -58,7 +58,7 @@ $db['development']  = $master_config['database']['development'];
 $db['testing']      = $master_config['database']['testing'];
 $db['production']   = $master_config['database']['production'];
 
-/*
+
 $db['local']['hostname'] = 'localhost';
 $db['local']['username'] = 'root';
 $db['local']['password'] = '';
@@ -75,7 +75,7 @@ $db['local']['swap_pre'] = '';
 $db['local']['autoinit'] = TRUE;
 $db['local']['stricton'] = FALSE;
 
-
+/*
 $db['development']['hostname'] = 'localhost';
 $db['development']['username'] = '';
 $db['development']['password'] = '';

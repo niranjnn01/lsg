@@ -39,6 +39,8 @@ class User extends CI_Controller {
 	
 	function login () {
 		//p('test ');exit;
+		$this->load->library('facebook');
+		
 		$this->mcontents['page_heading'] = $this->mcontents['page_title'] = 'Login';
 		
 		if(!$this->authentication->is_user_logged_in()) {
@@ -296,13 +298,47 @@ class User extends CI_Controller {
 	 */
 	function signup() {
 		
-		redirect('home');
+		//echo "test";exit;
+		//redirect('home');
+		$this->load->library('facebook');
         
+		/*
 		if($this->authentication->is_user_logged_in ()){
-			redirect('home');
+			//redirect('home');
 		}
-		
-		
+		*/
+		//$oFbUserData = (object) $this->facebook->request('get', '/me?fields=id,email,first_name,middle_name,last_name,gender,birthday');
+		//var_dump($oFbUserData);
+		//var_dump($this->facebook->is_authenticated());
+		//exit;
+		/*
+		if ($this->facebook->is_authenticated())
+		{
+			// User logged in, get user details
+			$oFbUserData = (object) $this->facebook->request('get', '/me?fields=id,email,first_name,middle_name,last_name,gender,birthday');
+			
+			var_dump($user);
+			if (!isset($user->error)){
+				if($oSystemUserData = $this->user_model->getUserBy('facebook_id', $user['id'])){
+					if($this->authentication->makeLogin($user['id'], 'facebook_id')){
+						redirect('home');
+					} else {
+						sf('error_message', 'There was some problem. Could not log you in.');
+						redirect('home');
+					}	
+				}
+				$this->mcontents['fb_user'] 	= $user;
+				$this->mcontents['email'] 		= $user->email;
+				$this->mcontents['first_name'] 	= $user->first_name;
+				$this->mcontents['middle_name'] = $user->middle_name;
+				$this->mcontents['last_name'] 	= $user->last_name;
+				$this->mcontents['gender']		= ('male' == $user->gender) ?  2 : 1;
+				$this->mcontents['dob']			= $user->birthday;
+			}else{
+				$this->merror['error'] = $user->error;
+			}
+		}
+		*/
 		$this->mcontents['page_heading'] 	= 'Sign Up';
 		$this->mcontents['page_title'] 		= 'Sign Up';
 		
@@ -418,8 +454,8 @@ class User extends CI_Controller {
 		
 		
 		$this->mcontents['load_css'][] = 'jquery-ui-1.8.16.custom.css';
-		$this->mcontents['load_css'][] = 'form.css';
-		$this->mcontents['load_css'][] = 'forms/signup.css';
+		//	$this->mcontents['load_css'][] = 'form.css';
+		//$this->mcontents['load_css'][] = 'forms/signup.css';
 		
 		$this->mcontents['aGenders'] 	= array(0=>'Select') + array_flip($this->aGenders);
 		$this->mcontents['aCaptcha'] 	= getCaptcha();
@@ -686,12 +722,20 @@ class User extends CI_Controller {
 	 *
 	 */
 	function handle_fb_login() {
+		$this->load->library('facebook');		
 		
-
-		$user = $this->facebook->getUser();
-
-		//p('BEFORE');
+		if(!$this->facebook->is_authenticated()){
+			redirect('user/login');
+		}
 		
+		$oFbUserData = (object) $this->facebook->request('get', '/me?fields=id,email,first_name,middle_name,last_name,gender,birthday,age_range');
+		
+		if(!isset($oFbUserData->email) || (isset($oFbUserData->email) && '' != $oFbUserData->email)){
+			
+		}
+		p('BEFORE');
+		print_r($oFbUserData);
+		exit;
 		$user_profile = $this->facebook->api('/me');
 		
 		//p('AFTER');
