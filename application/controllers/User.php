@@ -731,19 +731,17 @@ class User extends CI_Controller {
 		$oFbUserData = (object) $this->facebook->request('get', '/me?fields=id,email,first_name,middle_name,last_name,gender,birthday,age_range');
 		
 		if(!isset($oFbUserData->email) || (isset($oFbUserData->email) && '' != $oFbUserData->email)){
-			
+			sf('error_message', "You hav'nt allowed email permission on facebook.");
 		}
-		p('BEFORE');
-		print_r($oFbUserData);
-		exit;
-		$user_profile = $this->facebook->api('/me');
 		
+		
+//		$user_profile = $this->facebook->api('/me');
+
 		//p('AFTER');
 		
-		$oFbUserData = (object)$user_profile;
+		//$oFbUserData = (object)$user_profile;
 		
 		if($oSystemUserData = $this->user_model->getUserBy('facebook_id', $oFbUserData->id)){
-			
 			
 			if($oSystemUserData->status == $this->aUserStatus['closed']){
 				
@@ -788,9 +786,10 @@ class User extends CI_Controller {
 					$aUserData['gender'] 		= $this->aGenders[$oFbUserData->gender];
 					$aUserData['profile_image'] = $aImageData['file_name'];
 					
-					$aBirthday 	= explode('/', $oFbUserData->birthday); // mm/dd/yyyy
-					$aUserData['birthday'] 		= $aBirthday[2].'-'.$aBirthday[0].'-'.$aBirthday[1];
-					
+					if(isset($oFbUserData->birthday) && '' != $oFbUserData->birthday){
+						$aBirthday 	= explode('/', $oFbUserData->birthday); // mm/dd/yyyy
+						$aUserData['birthday'] 		= $aBirthday[2].'-'.$aBirthday[0].'-'.$aBirthday[1];
+					}
 					$this->db->set ($aUserData);
 			       	$this->db->insert ('users');
 
@@ -811,11 +810,11 @@ class User extends CI_Controller {
 //			       	);
 
 
-					$this->load->model('maintenance_model');
+					/*$this->load->model('maintenance_model');
 					$this->maintenance_model->getSingleSetting('db_welcome_msg');
 			       	$aWelcomeEmail['receiver_name'] = $aUserData['first_name'];
 			       	$aWelcomeEmail['welcome_text'] 	= $this->maintenance_model->getSingleSetting('db_signup_welcome_msg');
-					
+					*/
 					$aSettings = array(
 						'to' 				=> array($oFbUserData->email=>$aUserData['first_name']), // email_id => name pairs
 						'from_email' 		=> c('accounts_email_id'),
@@ -835,6 +834,7 @@ class User extends CI_Controller {
 			       	redirect('home');
 					
 				} else {
+					echo '3';exit;
 					sf('error_message', 'We already have an account associated with the email id '.$oFbUserData->email);
 					redirect('home');
 				}

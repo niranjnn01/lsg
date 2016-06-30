@@ -52,7 +52,12 @@
             <a href="<?php echo $c_base_url;?>contact_us">Contact Us</a>
         </li>
         <li class="">
-            <a href="<?php echo $c_base_url;?>user/login" >Login</a>
+        	<?php if( $this->authentication->is_user_logged_in() ):?>
+            	<a href="<?php echo $c_base_url;?>profile" >Profile</a>
+            <?php else:?>
+            	<a href="<?php echo $c_base_url;?>user/login" >Login</a>
+            <?php endif;?>
+            
         </li>
       </ul>
       
