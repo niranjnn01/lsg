@@ -74,7 +74,7 @@ class Common_Hook{
         // doing it here, because we want to controll when we need to load this facebook library.
         // reason being, when running via CLI, we dont want facebook library to load. (just too many errors )
         $CI->mcontents['c_enable_facebook_login'] = $CI->config->item('enable_facebook_login');
-        if( ( $CI->mcontents['c_enable_facebook_login'] === true ) && ( ! $this->input->is_cli() ) ) {
+        if( ( $CI->mcontents['c_enable_facebook_login'] === true ) && ( ! is_cli() ) ) {
             
             $CI->load->library('facebook');
         }

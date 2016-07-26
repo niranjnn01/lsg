@@ -43,6 +43,8 @@ class User extends CI_Controller {
 		
 		$this->mcontents['page_heading'] = $this->mcontents['page_title'] = 'Login';
 		
+		var_dump($this->authentication->is_user_logged_in());
+		
 		if(!$this->authentication->is_user_logged_in()) {
 			
 		    if (!empty($_POST)) {

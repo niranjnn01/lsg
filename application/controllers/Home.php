@@ -13,6 +13,8 @@ class Home extends CI_Controller {
 	function index() {
 		
 		loadTemplate('home/home');
+		
+		//p($this->session->userdata);
 	}
 	
 	

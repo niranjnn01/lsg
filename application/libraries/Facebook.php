@@ -229,11 +229,11 @@ Class Facebook {
         if (isset($access_token))
         {
             // Get long lived token
-            $access_token = $this->long_lived_token($access_token);
+            $long_lived_access_token = $this->long_lived_token($access_token);
 
-            // Save the token to the current session
-            $this->set_access_token($access_token);
-
+            // Save the long lived token to the current session
+            $this->set_access_token($long_lived_access_token);
+            
             // Set default access token
             $this->fb->setDefaultAccessToken($access_token);
 
@@ -306,6 +306,7 @@ Class Facebook {
     private function get_access_token()
     {
         return $this->session->userdata('fb_access_token');
+    
     }
 
     // ------------------------------------------------------------------------
@@ -318,6 +319,8 @@ Class Facebook {
     private function set_access_token($access_token)
     {
         $this->session->set_userdata('fb_access_token', $access_token);
+        
+        
     }
 
     // ------------------------------------------------------------------------
@@ -335,6 +338,43 @@ Class Facebook {
     public function __get($var)
     {
         return get_instance()->$var;
+    }
+    
+    
+    
+    /**
+     *
+     * Get currently logged in user
+     */
+    public function getCurrentUser() {
+        
+        $return = false;
+        
+        try {
+            // Returns a `Facebook\FacebookResponse` object
+            $response = $this->fb->get('/me?fields=id,name', '{access-token}'); // ACCESS TOKEN NREQUIRED
+            
+            $user = $response->getGraphUser();
+            
+            $return = array(
+                            'facebook_id' => $user['id']
+                        );
+            
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+            
+            log_message('error', 'Graph returned an error: ' . $e->getMessage());
+            //echo 'Graph returned an error: ' . $e->getMessage();
+            //exit;
+            
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            
+            log_message('error', 'Facebook SDK returned an error: ' . $e->getMessage());
+            //echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            //exit;
+            
+        }
+        
+        return $return;
     }
 
 

@@ -27,12 +27,12 @@ $_environment = 'local';
 
 switch( $base_path ) {
     
-    case 'C:/wamp/www/lijo/fruitsonmind':
+    case '':
         $_environment = 'local'; // local, development, testing, production
         break;
     
     
-    case '/home/damaccpanel/public_html/giftprojec':
+    case '/home/damaccpanel/public_html/lsg-demo':
         $_environment = 'development';
         break;
 }

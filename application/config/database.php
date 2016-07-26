@@ -70,10 +70,42 @@ $db['local']['db_debug'] = true;
 $db['local']['cache_on'] = FALSE;
 $db['local']['cachedir'] = '';
 $db['local']['char_set'] = 'utf8';
-$db['local']['dbcollat'] = 'utf8_general_ci';
+$db['local']['dbcollat'] = 'utf8_unicode_ci';
 $db['local']['swap_pre'] = '';
 $db['local']['autoinit'] = TRUE;
 $db['local']['stricton'] = FALSE;
+
+$db['development']['hostname'] = 'localhost';
+$db['development']['username'] = 'giftadmin';
+$db['development']['password'] = 'GiftAdmin';
+$db['development']['database'] = 'lsg';
+$db['development']['dbdriver'] = 'mysqli';
+$db['development']['dbprefix'] = '';
+$db['development']['pconnect'] = false;
+$db['development']['db_debug'] = TRUE;
+$db['development']['cache_on'] = FALSE;
+$db['development']['cachedir'] = '';
+$db['development']['char_set'] = 'utf8';
+$db['development']['dbcollat'] = 'utf8_unicode_ci';
+$db['development']['swap_pre'] = '';
+$db['development']['autoinit'] = TRUE;
+$db['development']['stricton'] = FALSE;
+
+$db['production']['hostname'] = '';
+$db['production']['username'] = '';
+$db['production']['password'] = '';
+$db['production']['database'] = '';
+$db['production']['dbdriver'] = 'mysqli';
+$db['production']['dbprefix'] = '';
+$db['production']['pconnect'] = TRUE;
+$db['production']['db_debug'] = false;
+$db['production']['cache_on'] = FALSE;
+$db['production']['cachedir'] = '';
+$db['production']['char_set'] = 'utf8';
+$db['production']['dbcollat'] = 'utf8_unicode_ci';
+$db['production']['swap_pre'] = '';
+$db['production']['autoinit'] = TRUE;
+$db['production']['stricton'] = FALSE;
 
 /*
 $db['development']['hostname'] = 'localhost';

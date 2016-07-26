@@ -146,11 +146,11 @@ class Authentication {
 	 */
 	function is_user_logged_in ($bRedirect=false, $sRedirectTo='home', $bReturnObject=false, $bTest=false){
 		
+		
 		$return = 0;
 		
 		$oUserData = $this->CI->user_model->getUserBy('id', s('USERID'), 'full');
 		
-
 		
 		if($oUserData) {
 			
@@ -170,8 +170,8 @@ class Authentication {
 											
 					} elseif( $this->CI->config->item('enable_facebook_login') && ( $oUserData->online_via == $this->aOnlineVia['facebook'] ) ) {
 						
-						$user = $this->CI->facebook->getUser();
-						
+						$user = $this->CI->facebook->getCurrentUser();
+						//p($user);
 						// We may or may not have this data based on whether the user is logged in.
 						//
 						// If we have a $user id here, it means we know the user is logged into

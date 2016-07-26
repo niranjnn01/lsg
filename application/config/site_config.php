@@ -139,7 +139,7 @@ $config['user_action_time'] = 300; 	// Avg time taken by a user to perform an ac
 
 $config['login_uri_segment'] = 'user/login';
 
-$config['enable_facebook_login'] = false;
+$config['enable_facebook_login'] = TRUE;
 $config['facebook_redirect_url'] = $config['base_url'] . 'facebook_redirect';
 
 
