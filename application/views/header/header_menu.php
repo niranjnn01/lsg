@@ -53,7 +53,7 @@
         </li>
         <li class="">
         	<?php if( $this->authentication->is_user_logged_in() ):?>
-            	<a href="<?php echo $c_base_url;?>profile" >Profile</a>
+            	<a href="<?php echo $c_base_url;?>logout" >Logout</a>
             <?php else:?>
             	<a href="<?php echo $c_base_url;?>user/login" >Login</a>
             <?php endif;?>
@@ -64,3 +64,6 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<?php if( $this->authentication->is_user_logged_in() ):?>
+	<div class="pull-right">Welcome <?php echo s('FULL_NAME');?></div>
+<?php endif;?>

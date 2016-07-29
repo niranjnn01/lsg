@@ -170,8 +170,9 @@ class Authentication {
 											
 					} elseif( $this->CI->config->item('enable_facebook_login') && ( $oUserData->online_via == $this->aOnlineVia['facebook'] ) ) {
 						
-						$user = $this->CI->facebook->getCurrentUser();
-						//p($user);
+						//$user = $this->CI->facebook->getCurrentUser();
+						$user = $this->CI->facebook->request('get', '/me');
+						
 						// We may or may not have this data based on whether the user is logged in.
 						//
 						// If we have a $user id here, it means we know the user is logged into
@@ -294,6 +295,10 @@ class Authentication {
 	    if(!$iUserId){
 	    	$iUserId = s('USERID');
 	    }
+		
+		if ($this->CI->facebook->is_authenticated()) {
+			$this->CI->facebook->destroy_session();
+		}
 		
 	    $oUser = $this->CI->user_model->getUserBy('id', $iUserId);
 		

@@ -39,11 +39,11 @@ class User extends CI_Controller {
 	
 	function login () {
 		//p('test ');exit;
-		$this->load->library('facebook');
+		//$this->load->library('facebook');
 		
 		$this->mcontents['page_heading'] = $this->mcontents['page_title'] = 'Login';
 		
-		var_dump($this->authentication->is_user_logged_in());
+		//var_dump($this->authentication->is_user_logged_in());
 		
 		if(!$this->authentication->is_user_logged_in()) {
 			
