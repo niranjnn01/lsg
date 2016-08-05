@@ -1,9 +1,9 @@
-<?php header("Content-type: text/css");$base_path =	'C:/wamp/www/lsg/';
-$base_url =	'http://localhost/lsg/';
+<?php header("Content-type: text/css");$base_path =	'C:/wamp/www/johnson/lsg/';
+$base_url =	'http://localhost/johnson/lsg/';
 $password_min_length =	'6';
 $contact_us_max_length =	'500';
-$static_image_url =	'http://localhost/lsg/asset/img/';
-$css_image_url =	'http://localhost/lsg/asset/css/themes/misty/css/img/';
+$static_image_url =	'http://localhost/johnson/lsg/asset/img/';
+$css_image_url =	'http://localhost/johnson/lsg/asset/css/themes/misty/css/img/';
 $captcha_img_height =	'';
 $css_variables =	array('base_colour' => '#888888','lighter1' => '#918F8F','darker1' => '#545252','link_colour' => '#02923B','link_visited_colour' => '#02923B','font_colour' => '#444444',);
  ?>

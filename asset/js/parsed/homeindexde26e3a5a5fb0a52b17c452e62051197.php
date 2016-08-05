@@ -1,17 +1,17 @@
-<?php header("Content-type: text/javascript");$base_path =	'C:/wamp/www/lsg/';
-$base_url =	'http://localhost/lsg/';
-$js_url =	'http://localhost/lsg/asset/js/';
+<?php header("Content-type: text/javascript");$base_path =	'C:/wamp/www/johnson/lsg/';
+$base_url =	'http://localhost/johnson/lsg/';
+$js_url =	'http://localhost/johnson/lsg/asset/js/';
 $password_min_length =	'6';
 $contact_us_max_length =	'500';
-$static_image_url =	'http://localhost/lsg/asset/img/';
+$static_image_url =	'http://localhost/johnson/lsg/asset/img/';
 $error_types =	array('not_logged_in' => '1','validation' => '2','other' => '3',);
-$css_image_url =	'http://localhost/lsg/asset/css/themes/misty/css/img/';
+$css_image_url =	'http://localhost/johnson/lsg/asset/css/themes/misty/css/img/';
 $waiting_img =	'ajax_loader.gif';
-$waiting_gif =	'<img class="waiting_gif_image" src="http://localhost/lsg/asset/img/ajax_loader.gif"/>';
+$waiting_gif =	'<img class="waiting_gif_image" src="http://localhost/johnson/lsg/asset/img/ajax_loader.gif"/>';
 $waiting_txt =	'Please wait';
-$waiting_gif_text =	'<img class="waiting_gif_image" src="http://localhost/lsg/asset/img/ajax_loader.gif"/><div class="waiting_gif_text" style="font-size:10px;" >Please wait</div>';
+$waiting_gif_text =	'<img class="waiting_gif_image" src="http://localhost/johnson/lsg/asset/img/ajax_loader.gif"/><div class="waiting_gif_text" style="font-size:10px;" >Please wait</div>';
 $excerpt_character_length =	'200';
-$asset_url =	'http://localhost/lsg/asset/';
+$asset_url =	'http://localhost/johnson/lsg/asset/';
 $db_facebook_app_id =	'';
  ?>function gotoPage(uri) {
 	window.location = "<?php echo $base_url;?>" + uri;  

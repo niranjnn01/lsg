@@ -52,12 +52,31 @@ $active_group = ACTIVE_DB_GROUP;
 
 $query_builder = TRUE;
 
-
+/*
 $db['local']        = $master_config['database']['local'];
 $db['development']  = $master_config['database']['development'];
 $db['testing']      = $master_config['database']['testing'];
 $db['production']   = $master_config['database']['production'];
+*/
 
+$db[ENVIRONMENT_]['hostname'] = $master_config['database'][ENVIRONMENT_]['hostname'];
+$db[ENVIRONMENT_]['username'] = $master_config['database'][ENVIRONMENT_]['username'];
+$db[ENVIRONMENT_]['password'] = $master_config['database'][ENVIRONMENT_]['password'];
+$db[ENVIRONMENT_]['database'] = $master_config['database'][ENVIRONMENT_]['database'];
+$db[ENVIRONMENT_]['dbdriver'] = $master_config['database'][ENVIRONMENT_]['dbdriver'];
+$db[ENVIRONMENT_]['dbprefix'] = $master_config['database'][ENVIRONMENT_]['dbprefix'];
+$db[ENVIRONMENT_]['pconnect'] = $master_config['database'][ENVIRONMENT_]['pconnect'];
+$db[ENVIRONMENT_]['db_debug'] = $master_config['database'][ENVIRONMENT_]['db_debug'];
+$db[ENVIRONMENT_]['cache_on'] = $master_config['database'][ENVIRONMENT_]['cache_on'];
+$db[ENVIRONMENT_]['cachedir'] = $master_config['database'][ENVIRONMENT_]['cachedir'];
+$db[ENVIRONMENT_]['char_set'] = $master_config['database'][ENVIRONMENT_]['char_set'];
+$db[ENVIRONMENT_]['dbcollat'] = $master_config['database'][ENVIRONMENT_]['dbcollat'];
+$db[ENVIRONMENT_]['swap_pre'] = $master_config['database'][ENVIRONMENT_]['swap_pre'];
+$db[ENVIRONMENT_]['autoinit'] = $master_config['database'][ENVIRONMENT_]['autoinit'];
+$db[ENVIRONMENT_]['stricton'] = $master_config['database'][ENVIRONMENT_]['stricton'];
+
+
+/* ================= OLD - 8/5/2016 ========================= */
 
 $db['local']['hostname'] = 'localhost';
 $db['local']['username'] = 'root';
@@ -106,6 +125,8 @@ $db['production']['dbcollat'] = 'utf8_unicode_ci';
 $db['production']['swap_pre'] = '';
 $db['production']['autoinit'] = TRUE;
 $db['production']['stricton'] = FALSE;
+
+/* ========================================== */
 
 /*
 $db['development']['hostname'] = 'localhost';

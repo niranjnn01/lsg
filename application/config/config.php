@@ -22,13 +22,12 @@ $config['base_url'] = '';
 $base_path = rtrim(BASEPATH, 'system/');
 $_environment = 'local';
 
-//echo $base_path;exit;
 
 
 switch( $base_path ) {
     
-    case '':
-        $_environment = 'local'; // local, development, testing, production
+    case 'C:/wamp/www/johnson/lsg':
+        $_environment = 'local-rakesh'; // local, development, testing, production
         break;
     
     
@@ -53,6 +52,11 @@ switch( ENVIRONMENT_ ) {
     
     case 'local':
         define('ACTIVE_DB_GROUP', 'local');
+        error_reporting(E_ALL);
+        break;
+    
+    case 'local-rakesh':
+        define('ACTIVE_DB_GROUP', 'local-rakesh');
         error_reporting(E_ALL);
         break;
     
